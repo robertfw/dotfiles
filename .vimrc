@@ -2,29 +2,89 @@ call pathogen#infect()
 filetype plugin indent on
 syntax on
 
-set expandtab           " enter spaces when tab is pressed
-set tabstop=4           " use 4 spaces to represent tab
+let mapleader=","
+
+set clipboard=unnamed  "osx clipboard compatibility
+
+set expandtab         " enter spaces when tab is pressed
+set tabstop=4         " use 4 spaces to represent tab
 set softtabstop=4
-set shiftwidth=4        " number of spaces to use for auto indent
-set smartindent          " copy indent from current line when starting a new line
+set shiftwidth=4      " number of spaces to use for auto indent
+set smartindent       " copy indent from current line when starting a new line
 
 set backspace=indent,eol,start " make backspaces more powerful
+set nojoinspaces
 
-set ruler   " show line and column number
+set colorcolumn=80
+set cursorline
 
-set wildmenu " show autocomplete options
-set wildmode=list:longest,full
+set wildmode=longest,list
+set incsearch
+set hlsearch
+set linebreak
 
 set number  " line numbers
 set ls=2    " status bar at the bottom
 set sc      " show partially completed commands
 set mouse=a " allow mouse scroll
 set noshowmode
+
+set autoread
 colorscheme desert 
+
+let g:lightline = {
+\  'active': {
+\    'left': [
+\       ['mode', 'paste'],
+\       ['gitbranch'],
+\       ['filename']
+\    ]
+\  },
+\  'subseparator': {
+\    'left': ''
+\  },
+\  'component': {
+\    'mode': '%{strpart(lightline#mode(), 0, 1)}',
+\    'lineinfo': '↓%-3l→%-2v',
+\  },
+\  'component_function': {
+\    'gitbranch': 'GitBranchStats',
+\    'filename': 'LightlineFilename'
+\  }
+\}
+
+function! LightlineFilename()
+  let filename = expand('%:f') !=# '' ? expand('%:f') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  let readonly = &readonly ? '  ⃠' : ''
+  return filename . modified . readonly
+endfunction
+
+function! GitBranchStats()
+    let branch = fugitive#head()
+    if branch == ''
+        return ''
+    endif
+
+    let changes = GitGutterGetHunkSummary()
+    let change_val = or(changes[0] > 0 ? 4 : 0,
+                   \    or(changes[1] > 0 ? 2 : 0,
+                   \       changes[2] > 0 ? 1 : 0))
+
+    let char_map = ['', ' -', ' ~', ' ≃', ' +', ' ±', ' +̃', ' ±̃']
+
+    return 'ᚶ ' . branch . char_map[change_val]
+endfunction
 
 " backup in one directory, don't scatter stuff around
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
+
+" remove trailing spaces
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Close the quickfix and other windows with a q
+nnoremap <expr> q (!&modifiable ? ':close!<CR>' : 'q')
 
 "Custom tab widths for file types
 autocmd Filetype html setlocal ts=2 sw=2 sts=2 expandtab
@@ -34,7 +94,7 @@ autocmd Filetype yaml setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype yml setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype json setlocal ts=2 sw=2 sts=2 expandtab
 
-set fillchars+=vert:\  " remove | char from split border, note significant whitespace 
+set fillchars+=vert:\  " remove | char from split border 
 
 " rebind panel selection to ctrl-{hjkl}
 nnoremap <silent> <c-h> :wincmd h<cr>
@@ -50,3 +110,18 @@ nnoremap <silent> <c-w>h :wincmd H<cr>
 nnoremap <silent> <c-w>j :wincmd J<cr>
 nnoremap <silent> <c-w>k :wincmd K<cr>
 nnoremap <silent> <c-w>l :wincmd L<cr>
+
+if executable('rg')
+  " Use ripgrep over Grep
+  set grepprg=rg\ --vimgrep
+  set grepformat^=%f:%l:%c:%m
+endif
+
+if executable('fzf')
+  "Fzf good for opening files
+  nnoremap <leader>t :Files<cr>
+endif
+
+command! -nargs=+ MyGrep execute 'silent grep! <args>' | copen | redraw!
+nnoremap <leader>/ :MyGrep<space>
+
