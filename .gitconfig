@@ -1,0 +1,30 @@
+[user]
+    name = Robert
+    email = robert.warner@otono.com
+
+[color]
+    ui = auto
+
+[core]
+    excludesfile = /Users/robert/.gitignore-global
+
+[alias]
+    undo-commit = reset --soft HEAD^
+    log-graph = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+
+[diff]
+    mnemonicPrefix = true
+    renames = true
+
+[merge]
+    conflictStyle = diff3
+
+[push]
+    default = simple
+
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
+
+[status]
+    showStash = true
+    showUntrackedFiles = all
