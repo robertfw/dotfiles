@@ -23,14 +23,17 @@ set incsearch
 set hlsearch
 set linebreak
 
-set number  " line numbers
+set splitbelow
+set splitright
+
+set number relativenumber  " enable hybrid line numbering
 set ls=2    " status bar at the bottom
 set sc      " show partially completed commands
 set mouse=a " allow mouse scroll
-set noshowmode
+set noshowmode  " dont show -- INSERT --
 
 set autoread
-colorscheme desert 
+colorscheme desert
 
 let g:lightline = {
 \  'active': {
@@ -49,9 +52,19 @@ let g:lightline = {
 \  },
 \  'component_function': {
 \    'gitbranch': 'GitBranchStats',
-\    'filename': 'LightlineFilename'
+\    'filename': 'LightlineFilename',
+\    'fileformat': 'LightlineFileformat',
+\    'filetype': 'LightlineFiletype'
 \  }
 \}
+
+function! LightlineFileformat()
+  return winwidth(0) > 85 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 85 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
 
 function! LightlineFilename()
   let filename = expand('%:f') !=# '' ? expand('%:f') : '[No Name]'
@@ -94,7 +107,7 @@ autocmd Filetype yaml setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype yml setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype json setlocal ts=2 sw=2 sts=2 expandtab
 
-set fillchars+=vert:\  " remove | char from split border 
+set fillchars+=vert:\  " remove | char from split border
 
 " rebind panel selection to ctrl-{hjkl}
 nnoremap <silent> <c-h> :wincmd h<cr>
@@ -120,8 +133,19 @@ endif
 if executable('fzf')
   "Fzf good for opening files
   nnoremap <leader>t :Files<cr>
+  nnoremap <leader>b :Buffers<cr>
+  nnoremap <leader>w :Windows<cr>
 endif
 
 command! -nargs=+ MyGrep execute 'silent grep! <args>' | copen | redraw!
 nnoremap <leader>/ :MyGrep<space>
 
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+augroup END
+
+" to swap windows A<>B: navigate to A, press bind, navigate to B, press bind
+let g:windowswap_map_keys = 0 "prevent default bindings for windowswap plugin
+nnoremap <c-w>y :call WindowSwap#EasyWindowSwap()<cr>

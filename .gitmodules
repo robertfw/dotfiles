@@ -33,7 +33,8 @@
 	url = https://github.com/tpope/vim-surround
 [submodule "vim/bundle/vim-sexp"]
 	path = vim/bundle/vim-sexp
-	url = https://github.com/guns/vim-sexp
+    url = https://github.com/guns/vim-sexp
+    ignore = untracked
 [submodule "vim/bundle/vim-sexp-mappings-for-regular-people"]
 	path = vim/bundle/vim-sexp-mappings-for-regular-people
 	url = git://github.com/tpope/vim-sexp-mappings-for-regular-people.git
@@ -43,3 +44,22 @@
 [submodule "vim/bundle/vim-salve"]
 	path = vim/bundle/vim-salve
 	url = https://github.com/tpope/vim-salve
+[submodule "vim/bundle/vim-eunuch"]
+	path = vim/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "vim/bundle/vim-eastwood"]
+	path = vim/bundle/vim-eastwood
+	url = https://github.com/venantius/vim-eastwood.git
+[submodule "vim/bundle/vim-clojure-static"]
+	path = vim/bundle/vim-clojure-static
+    url = https://github.com/guns/vim-clojure-static
+    ignore = untracked
+[submodule "vim/bundle/rainbow-parentheses"]
+	path = vim/bundle/rainbow-parentheses
+	url = https://github.com/kien/rainbow_parentheses.vim
+[submodule "vim/bundle/vim-windowswap"]
+	path = vim/bundle/vim-windowswap
+	url = https://github.com/wesQ3/vim-windowswap.git
+[submodule "vim/bundle/vim-cljfmt"]
+	path = vim/bundle/vim-cljfmt
+	url = https://github.com/venantius/vim-cljfmt.git
