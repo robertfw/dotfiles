@@ -26,7 +26,7 @@ set linebreak
 set splitbelow
 set splitright
 
-set number relativenumber  " enable hybrid line numbering
+set number
 set ls=2    " status bar at the bottom
 set sc      " show partially completed commands
 set mouse=a " allow mouse scroll
@@ -140,11 +140,13 @@ endif
 command! -nargs=+ MyGrep execute 'silent grep! <args>' | copen | redraw!
 nnoremap <leader>/ :MyGrep<space>
 
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-augroup END
+nnoremap <silent> <leader>n :noh<cr>
+
+"augroup numbertoggle
+"  autocmd!
+"  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+"  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+"augroup END
 
 " to swap windows A<>B: navigate to A, press bind, navigate to B, press bind
 let g:windowswap_map_keys = 0 "prevent default bindings for windowswap plugin

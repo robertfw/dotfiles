@@ -1,4 +1,4 @@
-alias ls='gls -lNhFA --color=auto --group-directories-first'
+alias ls='gls -oNhFA --color=auto --group-directories-first'
 alias gs='git status'
 alias gb='git branch'
 alias gc='git commit -m'
