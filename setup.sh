@@ -15,5 +15,5 @@ do
     [ ! -e $dest ] && ln -s $src $dest 2>/dev/null
 done
 
-brew install fzf ripgrep thefuck bash-completion emacs-plus git htop leiningen httpie
+brew install fzf ripgrep thefuck bash-completion emacs-plus git htop leiningen httpie jrnl pyenv python3
 

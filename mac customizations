@@ -1,0 +1,8 @@
+# make dock animation speed faster
+defaults write com.apple.dock autohide-time-modifier -float 0.25
+
+# make dock trigger speed faster
+defaults write com.apple.dock autohide-delay -float 0
+
+# show hidden files
+defaults write -g AppleShowAllFiles -bool true
