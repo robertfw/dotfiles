@@ -17,6 +17,6 @@ done
 
 brew tap d12frosted/emacs-plus
 
-brew install fzf ripgrep thefuck bash-completion emacs-plus git htop leiningen httpie jrnl pyenv python3 gnpg coreutils
+brew install fzf ripgrep thefuck bash-completion emacs-plus git htop leiningen httpie jrnl pyenv python3 gnupg coreutils
 
 sudo ln -s /usr/local/Cellar/emacs-plus/26.1/Emacs.app/ /Applications/
