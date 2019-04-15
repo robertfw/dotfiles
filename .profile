@@ -22,7 +22,7 @@ function prompt_command() {
     find_git_dirty
     git_stash_dirty
     last_commit_is_wip
-    
+
     if [[ "$git_branch" != "" ]]; then
         PROMPT+=" \[$txtblu\]レ\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]"
     fi
@@ -49,3 +49,5 @@ eval $(thefuck --alias)
 export PROMPT_COMMAND=prompt_command
 export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
 export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'

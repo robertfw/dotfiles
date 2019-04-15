@@ -90,8 +90,8 @@ function! GitBranchStats()
 endfunction
 
 " backup in one directory, don't scatter stuff around
-set backupdir=~/.vim/backup/
-set directory=~/.vim/backup/
+set backupdir=~/.vim/backup//
+set directory=~/.vim/backup//
 
 " remove trailing spaces
 autocmd BufWritePre * :%s/\s\+$//e
@@ -141,12 +141,6 @@ command! -nargs=+ MyGrep execute 'silent grep! <args>' | copen | redraw!
 nnoremap <leader>/ :MyGrep<space>
 
 nnoremap <silent> <leader>n :noh<cr>
-
-"augroup numbertoggle
-"  autocmd!
-"  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-"  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-"augroup END
 
 " to swap windows A<>B: navigate to A, press bind, navigate to B, press bind
 let g:windowswap_map_keys = 0 "prevent default bindings for windowswap plugin

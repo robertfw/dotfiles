@@ -13,15 +13,6 @@ function flush_dns() {
     sudo dscacheutil -flushcache && echo Flushed!
 }
 
-function mvln() {
-    mv $1 $2
-    ln -s $2 $1
-}
-
-function get_kafka_broker_ids() {
-	cd ~/op/fullstack/kafka-cluster
-}
-
 watch_zookeeper() {
     watch -n 1 -d "echo mntr | nc $1 2181 | grep 'server_state\|alive'"
 }
