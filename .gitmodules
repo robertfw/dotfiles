@@ -1,65 +1,65 @@
-[submodule "vim/pathogen"]
-	path = vim/pathogen
+[submodule ".vim/pathogen"]
+	path = .vim/pathogen
 	url = http://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/git-gutter"]
-	path = vim/bundle/git-gutter
+[submodule ".vim/bundle/git-gutter"]
+	path = .vim/bundle/git-gutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "vim/bundle/salt"]
-	path = vim/bundle/salt
+[submodule ".vim/bundle/salt"]
+	path = .vim/bundle/salt
 	url = https://github.com/saltstack/salt-vim.git
-[submodule "vim/bundle/vim-fireplace"]
-	path = vim/bundle/vim-fireplace
+[submodule ".vim/bundle/vim-fireplace"]
+	path = .vim/bundle/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace.git
-[submodule "vim/bundle/fzf.vim"]
-	path = vim/bundle/fzf.vim
+[submodule ".vim/bundle/fzf.vim"]
+	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "vim/bundle/vim-polyglot"]
-	path = vim/bundle/vim-polyglot
+[submodule ".vim/bundle/vim-polyglot"]
+	path = .vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "vim/bundle/lightline"]
-	path = vim/bundle/lightline
+[submodule ".vim/bundle/lightline"]
+	path = .vim/bundle/lightline
 	url = https://github.com/itchyny/lightline.vim.git
-[submodule "vim/bundle/fzf"]
-	path = vim/bundle/fzf
+[submodule ".vim/bundle/fzf"]
+	path = .vim/bundle/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "vim/bundle/vim-surround"]
-	path = vim/bundle/vim-surround
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "vim/bundle/vim-sexp"]
-	path = vim/bundle/vim-sexp
+[submodule ".vim/bundle/vim-sexp"]
+	path = .vim/bundle/vim-sexp
     url = https://github.com/guns/vim-sexp
     ignore = untracked
-[submodule "vim/bundle/vim-sexp-mappings-for-regular-people"]
-	path = vim/bundle/vim-sexp-mappings-for-regular-people
+[submodule ".vim/bundle/vim-sexp-mappings-for-regular-people"]
+	path = .vim/bundle/vim-sexp-mappings-for-regular-people
 	url = git://github.com/tpope/vim-sexp-mappings-for-regular-people.git
-[submodule "vim/bundle/vim-repeat"]
-	path = vim/bundle/vim-repeat
+[submodule ".vim/bundle/vim-repeat"]
+	path = .vim/bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/vim-salve"]
-	path = vim/bundle/vim-salve
+[submodule ".vim/bundle/vim-salve"]
+	path = .vim/bundle/vim-salve
 	url = https://github.com/tpope/vim-salve
-[submodule "vim/bundle/vim-eunuch"]
-	path = vim/bundle/vim-eunuch
+[submodule ".vim/bundle/vim-eunuch"]
+	path = .vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
-[submodule "vim/bundle/vim-eastwood"]
-	path = vim/bundle/vim-eastwood
+[submodule ".vim/bundle/vim-eastwood"]
+	path = .vim/bundle/vim-eastwood
 	url = https://github.com/venantius/vim-eastwood.git
-[submodule "vim/bundle/vim-clojure-static"]
-	path = vim/bundle/vim-clojure-static
+[submodule ".vim/bundle/vim-clojure-static"]
+	path = .vim/bundle/vim-clojure-static
     url = https://github.com/guns/vim-clojure-static
     ignore = untracked
-[submodule "vim/bundle/rainbow-parentheses"]
-	path = vim/bundle/rainbow-parentheses
+[submodule ".vim/bundle/rainbow-parentheses"]
+	path = .vim/bundle/rainbow-parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim
-[submodule "vim/bundle/vim-windowswap"]
-	path = vim/bundle/vim-windowswap
+[submodule ".vim/bundle/vim-windowswap"]
+	path = .vim/bundle/vim-windowswap
 	url = https://github.com/wesQ3/vim-windowswap.git
-[submodule "vim/bundle/vim-cljfmt"]
-	path = vim/bundle/vim-cljfmt
+[submodule ".vim/bundle/vim-cljfmt"]
+	path = .vim/bundle/vim-cljfmt
 	url = https://github.com/venantius/vim-cljfmt.git

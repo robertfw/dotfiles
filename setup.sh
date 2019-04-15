@@ -8,11 +8,12 @@ git submodule update --depth 1
 
 repo=${PWD##$HOME/}
 
-for f in .vim .vimrc .bash_profile .gitignore_global .spacemacs
+for f in .vim .vimrc .profile .gitconfig .inputrc .gitignore-global .spacemacs
 do
     dest=~/$f
-    src=$repo/${f#.}
+    src=$repo/$f
     [ ! -e $dest ] && ln -s $src $dest 2>/dev/null
 done
 
-# TODO: install ripgrep, fzf
+brew install fzf ripgrep thefuck bash-completion emacs-plus git htop leiningen httpie
+
